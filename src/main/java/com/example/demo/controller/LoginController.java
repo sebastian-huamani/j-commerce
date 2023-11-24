@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @RequestMapping("/auth")
 @Controller
 @AllArgsConstructor
@@ -37,7 +39,8 @@ public class LoginController {
         UsuarioSecurity usuarioSecurity = (UsuarioSecurity) userDetails;
 
         session.setAttribute("usuario", usuarioSecurity);
-        System.out.println(usuarioSecurity );
+        session.setAttribute("usuario_2", userDetails.getAuthorities());
+        System.out.println(userDetails.getAuthorities());
         return "homeloged";
     }
 

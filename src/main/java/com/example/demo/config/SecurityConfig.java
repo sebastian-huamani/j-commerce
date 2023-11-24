@@ -18,27 +18,35 @@ public class SecurityConfig {
     private  final DetalleUsuarioService detalleUsuarioService;
 
     @Bean
-    public SecurityFilterChain config(HttpSecurity httpSecurity) throws Exception{
+//    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
+//        return httpSecurity
+//                .authorizeHttpRequests()
+//                    .requestMatchers("/home/index").permitAll()
+//                    .anyRequest().authenticated()
+//                .and()
+//                .formLogin().permitAll()
+//                .and()
+//                .build();
+//    }
+
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
-                .authorizeHttpRequests(
-                        auth->
-                                auth.requestMatchers(
+                .authorizeHttpRequests( auth -> {
+                            auth.requestMatchers(
                                             "/auth/login",
-                                        "/auth/login",
-                                        "/auth/register",
-                                        "/auth/register",
-                                        "/resources/**",
-                                        "/static/**",
-                                        "/styles/**",
-                                        "/scripts/**")
-                                        .permitAll()
-                                        .anyRequest()
-                                        .authenticated()
-                ).formLogin(
+                                            "/auth/register",
+                                            "/resources/**",
+                                            "/static/**",
+                                            "/styles/**",
+                                            "/scripts/**",
+                                            "/home/index")
+                                    .permitAll();
+                            auth.anyRequest().authenticated();
+                }).formLogin(
                         login ->
                                 login.loginPage("/auth/login")
                                     .defaultSuccessUrl("/auth/login-success")
-                                    .usernameParameter("nombres")
+                                    .usernameParameter("email")
                                         .passwordParameter("password")
                 ).logout(
                         logout ->

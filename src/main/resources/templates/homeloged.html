@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head  th:replace="layout/layout::head">
 <body>
+<nav th:replace="layout/layout::menu"></nav>
+
     :D
-    <h1 th:text="${session.usuario}"></h1>
+    <h1 th:text="${session.usuario.authorities[0]}"></h1>
+
+    <div th:if="${session.usuario_rol == [USUARIO]}">
+        ADMIN :P
+    </div>
+
+    <div th:if="${session.usuario_rol == ['USUARIO']}">
+        USUARIO :P
+    </div>
 
     <form th:action="@{/logout}" method="post">
         <button class="btn btn-primary" type="submit">Logout</button>

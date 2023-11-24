@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/home")
 public class HomeController {
 
-    @GetMapping("")
-    public String index(){
-        return "home";
+    @GetMapping("/index")
+    public String index2(){
+        System.out.print("asd");
+        return "home2";
     }
 
 }

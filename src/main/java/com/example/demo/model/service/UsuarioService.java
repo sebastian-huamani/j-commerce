@@ -20,7 +20,7 @@ public class UsuarioService {
     private RolRepository rolRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-    public Usuario findUserByEmail(String email){
+    public Usuario findUserByUserEmail(String email){
         return  usuarioRepository.findByEmail(email);
     }
 
