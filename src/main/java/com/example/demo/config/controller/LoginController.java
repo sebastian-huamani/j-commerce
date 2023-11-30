@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.config.controller;
 
 import com.example.demo.config.SecurityConfig;
 import com.example.demo.model.security.UsuarioSecurity;

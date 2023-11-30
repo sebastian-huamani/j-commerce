@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.config.controller;
 
 import com.example.demo.model.db.Usuario;
 import com.example.demo.model.service.UsuarioService;

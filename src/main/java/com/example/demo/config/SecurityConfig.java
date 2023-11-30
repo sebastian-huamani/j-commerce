@@ -44,7 +44,7 @@ public class SecurityConfig {
                             auth.anyRequest().authenticated();
                 }).formLogin(
                         login ->
-                                login.loginPage("/auth/login")
+                                login.loginPage("/auth/login").permitAll()
                                     .defaultSuccessUrl("/auth/login-success")
                                     .usernameParameter("email")
                                         .passwordParameter("password")
