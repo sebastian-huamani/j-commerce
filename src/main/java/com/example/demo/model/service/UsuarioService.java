@@ -5,12 +5,13 @@ import com.example.demo.model.db.Usuario;
 import com.example.demo.model.repository.RolRepository;
 import com.example.demo.model.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -19,6 +20,8 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     private RolRepository rolRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
+    public Optional<Usuario> findUserById(int id){ return usuarioRepository.findById(id); }
 
     public Usuario findUserByUserEmail(String email){
         return  usuarioRepository.findByEmail(email);
@@ -42,7 +45,15 @@ public class UsuarioService {
 //        usuario.setFecha_creacion(usuario.getFecha_creacion());
 //        usuario.setFecha_actualizacion(usuario.getFecha_actualizacion());
         return usuarioRepository.save(usuario);
-
     }
+
+
+    public List<Usuario> listarUsuarios(){
+        return usuarioRepository.findAll();
+    }
+
+//    public Usuario editarUsuario(Usuario usuario){
+//        return  "";
+//    }
 
 }

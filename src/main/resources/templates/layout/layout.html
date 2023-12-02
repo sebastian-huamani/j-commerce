@@ -12,19 +12,24 @@
             type="text/javascript"></script>
     <script th:src="@{/scripts/jquery/jquery.js}"
             type="text/javascript"></script>
+    <script th:src="@{/scripts/jquery/jquery.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/scripts/web/miCarrito.js}"
+            type="text/javascript"></script>
+
 </head>
 <body>
-
-        <nav class="navbar navbar-expand-lg bg-body-tertiary"  th:fragment="menu">
+    <div  th:fragment="menu">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" th:href="@{/home/index}">Home</a>
+                            <a class="nav-link active" aria-current="page" th:href="@{/productos/}">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/usuario/}">Usuarios</a>
@@ -37,8 +42,22 @@
                         </li>
 
                     </ul>
+                    <div class="d-flex" role="search">
+                        <button class="btn btn-outline-success"  type="button" id="panel_micarrito">
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Mi Carrito
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
+        <div class="fixed bg-primary vh-100 fade " id="box_carrito" style="position: fixed;
+    top: 55px; right: 12px;z-index: 1;width: 295px;max-width: 295px;">
+            <ul class="w-100 text-break p-1 list-unstyled" id="miCarrito" >
+            </ul>
+        </div>
+    </div>
+
+
+
 </body>
 </html>
