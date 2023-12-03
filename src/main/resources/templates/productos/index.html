@@ -6,6 +6,9 @@
 <nav th:replace="layout/layout::menu"></nav>
 
 <div class="m-0 vh-100 row">
+
+    <a class="btn btn-success" th:href="@{/productos/crear}"> Crear Producto </a>
+
     <div class="d-flex flex-wrap p-2 container ">
         <div th:each="producto :${productos}" >
             <a href="#" th:href="@{/productos/visualizar/}  + ${producto.id}" class="card mx-4 text-decoration-none" style="width: 18rem;">

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+
+<div class="m-0 vh-100  justify-content-center row">
+
+    <form class="mt-4 w-50 mx-auto">
+        <div class="mb-3">
+            <label for="txtnombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="txtnombre" name="nombre" aria-describedby="emailHelp">
+<!--            <div id="nombrelHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+        </div>
+        <div class="mb-3">
+            <label for="txtdescripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="txtdescripcion" name="descripcion">
+        </div>
+        <div class="mb-3">
+            <label for="txtmarca" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="txtmarca" name="marca">
+        </div>
+        <div class="mb-3">
+            <label for="txtprecio_compra" class="form-label">Precio Compra</label>
+            <input type="number" step="0.01" class="form-control" id="txtprecio_compra" name="precio_compra">
+        </div>
+        <div class="mb-3">
+            <label for="txtprecio_venta" class="form-label">Precio Venta</label>
+            <input type="number" step="0.01" class="form-control" id="txtprecio_venta" name="precio_venta">
+        </div>
+        <div class="mb-3">
+            <label for="txtactivo" class="form-label">Activo</label>
+            <input type="checkbox" class="" id="txtactivo" name="activo">
+        </div>
+        <div class="mb-3">
+            <label for="txtcantidad" class="form-label">Activo</label>
+            <input type="number" class="form-control" id="txtcantidad" name="cantidad">
+        </div>
+        <div class="mb-3">
+            <label for="txtcantidad_minima" class="form-label">Cantidad Venta</label>
+            <input type="number" class="form-control" id="txtcantidad_minima" name="cantidad_minima">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+
+</div>
+
+</body>
+</html>

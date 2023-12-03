@@ -43,4 +43,10 @@ public class ProductosController {
         return "/productos/producto";
     }
 
+    @GetMapping("/crear")
+    public String crear(){
+        return "/productos/crear";
+    }
+
+
 }
