@@ -1,4 +1,4 @@
-package com.example.demo.config.controller;
+package com.example.demo.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/home")
-public class HomeController {
+@RequestMapping("/transacciones")
+public class TransaccionesController {
 
-    @GetMapping("/index")
-    public String index2(){
-        System.out.print("asd");
-        return "home2";
+    @GetMapping("/")
+    public String index(){
+        return "/transacciones/index";
     }
-
 }

@@ -17,8 +17,10 @@
                     <p th:text="${producto.precio_venta}"></p>
                     <p th:text="${producto.marca}"></p>
                 </div>
+                <a th:href="@{/productos/editar/} + ${producto.id}">editar</a>
             </div>
         </div>
+
         <button id="btn_carrito" class="btn btn-primary" type="button" th:onclick="'agregarCarrito('+${producto.id}+ ')'">Agregar a mi carrito</button>
     </div>
 </div>

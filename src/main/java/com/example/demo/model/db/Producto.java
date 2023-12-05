@@ -23,8 +23,18 @@ public class Producto {
     private  String marca;
 
     @Column(name = "precio_compra")
-    private Float precio_compra;
+    private Integer precio_compra;
 
     @Column(name = "precio_venta")
-    private Float precio_venta;
+    private Integer precio_venta;
+
+    @Column(name = "activo")
+    private Boolean activo;
+
+    @Column(name = "cantidad")
+    private Integer cantidad;
+
+    @Column(name = "cantidad_minima")
+    private Integer cantidad_minima;
+
 }

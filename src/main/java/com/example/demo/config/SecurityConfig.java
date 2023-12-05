@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -31,18 +32,20 @@ public class SecurityConfig {
 
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
-                .authorizeHttpRequests( auth -> {
-                            auth.requestMatchers(
+                .authorizeHttpRequests(
+                        auth -> auth.requestMatchers(
                                             "/auth/login",
                                             "/auth/register",
                                             "/resources/**",
                                             "/static/**",
                                             "/styles/**",
                                             "/scripts/**",
-                                            "/home/index")
-                                    .permitAll();
-                            auth.anyRequest().authenticated();
-                }).formLogin(
+                                            "/home/index",
+                                            "/productos/**",
+                                            "/productos/store")
+                                    .permitAll().anyRequest().authenticated()
+                ).csrf(AbstractHttpConfigurer::disable)
+                .formLogin(
                         login ->
                                 login.loginPage("/auth/login").permitAll()
                                     .defaultSuccessUrl("/auth/login-success")

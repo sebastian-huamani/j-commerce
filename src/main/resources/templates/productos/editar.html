@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+
+<div class="m-0 vh-100  justify-content-center row">
+    <h1>Editar Producto</h1>
+    <div  id="frmCrearProducto" class="mt-4 w-50 mx-auto">
+        <input type="hidden" class="form-control" id="txtid" name="id" th:value="${producto.id}">
+
+        <div class="mb-3">
+            <label for="txtnombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="txtnombre" name="nombre" th:value="${producto.nombre}">
+        </div>
+        <div class="mb-3">
+            <label for="txtdescripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="txtdescripcion" name="descripcion"  th:value="${producto.descripcion}">
+        </div>
+        <div class="mb-3">
+            <label for="txtmarca" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="txtmarca" name="marca" th:value="${producto.marca}">
+        </div>
+        <div class="mb-3">
+            <label for="txtprecio_compra" class="form-label">Precio Compra</label>
+            <input type="number" step="0.01" class="form-control" id="txtprecio_compra" name="precio_compra" th:value="${producto.precio_compra}">
+        </div>
+        <div class="mb-3">
+            <label for="txtprecio_venta" class="form-label">Precio Venta</label>
+            <input type="number" step="0.01" class="form-control" id="txtprecio_venta" name="precio_venta" th:value="${producto.precio_venta}">
+        </div>
+        <div class="mb-3">
+            <label for="txtactivo" class="form-label">Activo</label>
+            <input type="checkbox" class="" id="txtactivo" name="activo" th:checked="${producto.activo ? true : false}">
+        </div>
+        <div class="mb-3">
+            <label for="txtcantidad" class="form-label">Cantidad</label>
+            <input type="number" class="form-control" id="txtcantidad" name="cantidad" th:value="${producto.cantidad}">
+        </div>
+        <div class="mb-3">
+            <label for="txtcantidad_minima" class="form-label">Cantidad Minima</label>
+            <input type="number" class="form-control" id="txtcantidad_minima" name="cantidad_minima" th:value="${producto.cantidad_minima}">
+        </div>
+        <button type="button" id="btn-guardar" class="btn btn-primary">Editar</button>
+    </div>
+
+</div>
+
+</body>
+</html>

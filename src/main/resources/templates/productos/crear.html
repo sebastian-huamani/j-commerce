@@ -7,11 +7,12 @@
 
 <div class="m-0 vh-100  justify-content-center row">
 
-    <form class="mt-4 w-50 mx-auto">
+    <div  id="frmCrearProducto" class="mt-4 w-50 mx-auto">
+        <input type="hidden" class="form-control" id="txtid" name="id" value="0">
+
         <div class="mb-3">
             <label for="txtnombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="txtnombre" name="nombre" aria-describedby="emailHelp">
-<!--            <div id="nombrelHelp" class="form-text">We'll never share your email with anyone else.</div>-->
         </div>
         <div class="mb-3">
             <label for="txtdescripcion" class="form-label">Descripcion</label>
@@ -34,15 +35,15 @@
             <input type="checkbox" class="" id="txtactivo" name="activo">
         </div>
         <div class="mb-3">
-            <label for="txtcantidad" class="form-label">Activo</label>
+            <label for="txtcantidad" class="form-label">Cantidad</label>
             <input type="number" class="form-control" id="txtcantidad" name="cantidad">
         </div>
         <div class="mb-3">
-            <label for="txtcantidad_minima" class="form-label">Cantidad Venta</label>
+            <label for="txtcantidad_minima" class="form-label">Cantidad Minima</label>
             <input type="number" class="form-control" id="txtcantidad_minima" name="cantidad_minima">
         </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
-    </form>
+        <button type="button" id="btn-guardar" class="btn btn-primary">Crear</button>
+    </div>
 
 </div>
 
