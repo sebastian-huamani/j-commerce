@@ -5,12 +5,14 @@
 
 <nav th:replace="layout/layout::menu"></nav>
 
-<div class="m-0 vh-100 row">
+<div class="m-0 vh-100 row p-3">
 
-    <a class="btn btn-success" th:href="@{/productos/crear}"> Crear Producto </a>
+    <div class="d-flex" style="height: 31px;">
+        <a class="btn btn-success" th:href="@{/productos/crear}"> Crear Producto </a>
+    </div>
 
-    <div class="d-flex flex-wrap p-2 container ">
-        <div th:each="producto :${productos}" >
+    <div class="row gap-3 p-2 container ">
+        <div class="col" th:each="producto :${productos}" style="height: 230px; max-height: 230px;">
             <a href="#" th:href="@{/productos/visualizar/}  + ${producto.id}" class="card mx-4 text-decoration-none" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">

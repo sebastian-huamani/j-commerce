@@ -4,6 +4,8 @@ import com.example.demo.model.db.Rol;
 import com.example.demo.model.db.Usuario;
 import com.example.demo.model.repository.RolRepository;
 import com.example.demo.model.repository.UsuarioRepository;
+import com.example.demo.model.request.UsuarioRequest;
+import com.example.demo.model.response.RespuestaResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -39,11 +41,7 @@ public class UsuarioService {
         usuario.setApellido_materno(usuario.getApellido_materno());
         usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
         usuario.setEmail(usuario.getEmail());
-//        usuario.setDocumento(usuario.getDocumento());
         usuario.setActivo(true);
-//        usuario.setFecha_nacimiento(usuario.getFecha_nacimiento());
-//        usuario.setFecha_creacion(usuario.getFecha_creacion());
-//        usuario.setFecha_actualizacion(usuario.getFecha_actualizacion());
         return usuarioRepository.save(usuario);
     }
 
@@ -52,8 +50,5 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-//    public Usuario editarUsuario(Usuario usuario){
-//        return  "";
-//    }
 
 }

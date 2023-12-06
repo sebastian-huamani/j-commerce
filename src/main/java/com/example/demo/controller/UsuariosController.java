@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.request.ProductoRequest;
 import com.example.demo.model.request.UsuarioRequest;
 import com.example.demo.model.db.Usuario;
+import com.example.demo.model.response.RespuestaResponse;
 import com.example.demo.model.response.UsuarioResponse;
 import com.example.demo.model.service.UsuarioService;
 import lombok.AllArgsConstructor;
@@ -39,9 +41,5 @@ public class UsuariosController {
         return "/usuario/editar";
     }
 
-//    @PostMapping("/guardar")
-//    @ResponseBody
-//    public UsuarioResponse guardar(@RequestBody UsuarioRequest usuarioRequest) {
-//        return UsuarioService.editarUsuario(usuarioRequest);
-//    }
+
 }

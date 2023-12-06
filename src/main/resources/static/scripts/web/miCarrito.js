@@ -1,5 +1,5 @@
 $(document).on("click", "#panel_micarrito", function(){
-    $('#box_carrito').toggleClass('fade');
+    $('#box_carrito').toggleClass('d-none');
 });
 
 function agregarCarrito(id, nombre){

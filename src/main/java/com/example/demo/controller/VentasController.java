@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/transacciones")
-public class TransaccionesController {
+@RequestMapping("/ventas")
+public class VentasController {
 
     @GetMapping("/")
     public String index(){
