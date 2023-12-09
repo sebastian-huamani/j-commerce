@@ -43,18 +43,18 @@
 
                     </ul>
                     <div class="d-flex" role="search">
-                        <button class="btn btn-outline-success"  type="button" id="panel_micarrito">
+                        <a th:href="@{/carrito/compras/listar}" class="btn btn-outline-success" >
                             <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Mi Carrito
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="fixed bg-primary vh-100 d-none " id="box_carrito" style="position: fixed;
-    top: 55px; right: 12px;z-index: 1;width: 295px;max-width: 295px;">
-            <ul class="w-100 text-break p-1 list-unstyled" id="miCarrito" >
-            </ul>
-        </div>
+<!--        <div class="fixed bg-primary vh-100 d-none " id="box_carrito" style="position: fixed;-->
+<!--    top: 55px; right: 12px;z-index: 1;width: 295px;max-width: 295px;">-->
+<!--            <ul class="w-100 text-break p-1 list-unstyled" id="miCarrito" >-->
+<!--            </ul>-->
+<!--        </div>-->
     </div>
 
 

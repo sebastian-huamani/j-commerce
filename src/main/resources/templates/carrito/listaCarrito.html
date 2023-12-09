@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+
+<div class="vh-100 justify-content-center container" >
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="jumbotron bg-body-secondary my-3 p-3" th:each="producto :${productos}">
+                <h1 th:text="${producto.producto.nombre}"></h1>
+                <div class="row justify-content-between align-items-start">
+                    <p class="lead col-8" th:text="${producto.producto.descripcion}"></p>
+                    <p class="lead col-4 text-end mr-4"> S/.  <span th:text="${producto.producto.precio_venta}"></span> </p>
+                </div>
+                <div class="card-footer pt-0 border-top-0 bg-transparent d-flex justify-content-end">
+                    <div class="text-end mx-1"><a class="btn btn-outline-dark mt-auto" th:href="@{/productos/visualizar/}  + ${producto.producto.id}" >Ver Producto</a></div>
+                    <div class="text-end mx-1"><a class="btn btn-outline-dark mt-auto" th:onclick="'eliminarProductoCarrito('+${producto.id}+ ')'" >Eliminar</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4 mt-3">
+                <div class="card-header">Resumen: </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li>Total a Pagar: S/. <span th:text="${total}"></span></li>
+                    </ul>
+                </div>
+                <a  type="button" class="btn btn-success">Pagar</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

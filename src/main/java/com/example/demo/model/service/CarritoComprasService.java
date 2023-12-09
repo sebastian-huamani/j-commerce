@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,24 @@ public class CarritoComprasService {
     private CarritoComprasRepository carritoComprasRepository;
     private UsuarioRepository usuarioRepository;
     private ProductoRepository productoRepository;
+
+
+    public List<CarritoCompras> listar(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+        return carritoComprasRepository.findByUsuarioId(usuario.getId());
+    }
+
+    public Double calcular(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+        List<CarritoCompras> carritoCompras =  carritoComprasRepository.findByUsuarioId(usuario.getId());
+        Double total = Double.valueOf(0);
+        for( CarritoCompras carritoItem : carritoCompras){
+            total += carritoItem.getProducto().getPrecio_venta();
+        }
+        return total;
+    }
 
     public RespuestaResponse agregar(CarritoComprasRequest carritoComprasRequest){
         String msg = "Pruebas";

@@ -21,7 +21,7 @@ public class ProductosController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("productos", productoService.listarProductos()   );
+        model.addAttribute("productos", productoService.listarProductos());
         return "/productos/index";
     }
 

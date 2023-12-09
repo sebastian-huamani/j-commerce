@@ -1,37 +1,28 @@
-$(document).on("click", "#panel_micarrito", function(){
-    $('#box_carrito').toggleClass('d-none');
-});
+//$(document).on("click", "#panel_micarrito", function(){
+//    $('#box_carrito').toggleClass('d-none');
+//});
 
 function agregarCarrito(id){
-//    var lista = [];
-//    var existProductJSON =  window.localStorage.getItem('productos');
-//    var data = JSON.parse(existProductJSON);
-//
-//    if(data != null) {
-//        data.forEach((element) => lista.push(element));
-//    }
-//
-//    if(!lista.includes(id)){
-//        lista.push(id);
-//        window.localStorage.setItem('productos', JSON.stringify(lista));
-
-
     $.ajax({
-            type: "POST",
-            url: "/carrito/compras/agregar",
-            contentType: "application/json",
-            data:  JSON.stringify({
-                id : id,
-                cantidad : 2
-            }),
-            success: function(res){
-                console.log(res);
-            },
-            error: function(xhr, status, error) {
-                console.log("error");
-            }
-        })
-    }
+        type: "POST",
+        url: "/carrito/compras/agregar",
+        contentType: "application/json",
+        data:  JSON.stringify({
+            id : id,
+            cantidad : 1
+        }),
+        success: function(res){
+            console.log(res);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+}
+
+function eliminarProductoCarrito(id){
+    console.log('elinar producto en proceso');
+}
 
 
 $(document).on('click', '#btn-guardar', function(){

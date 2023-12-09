@@ -11,25 +11,29 @@
         <a class="mx-3" th:href="@{/productos/editar/} + ${producto.id}">editar</a>
     </div>
 
-    <div class="p-2 container mt-5">
-
-        <div class="row row-cols-2 g-3 mx-4 text-decoration-none"    >
-            <div class="col-6">
-                <img src="..." class="card-img-top" alt="...">
-                <p>adasdadada</p>
-            </div>
-            <div class="col-6">
-                <h5 class="card-title" th:text="${producto.nombre}"></h5>
-                <p class="card-text" th:text="${producto.descripcion}"></p>
-                <div class="d-flex justify-content-between p-2">
-                    <p class="my-3"> Precio de Venta: S/.  <span th:text="${producto.precio_venta}"></span> </p>
-                    <p> Marca: <span th:text="${producto.marca}"></span></p>
+    <section class="py-2">
+        <div class="container px-4 px-lg-5 my-2">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bolder" th:text="${producto.nombre}"></h1>
+                    <div class="fs-5 mb-5">
+                        <span>S/. <span th:text="${producto.precio_venta}"></span> </span>
+                    </div>
+                        <div class="">
+                        <p class="lead" th:text="${producto.descripcion}"></p>
+                            <div class="d-flex">
+                                <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                                <button class="btn btn-outline-dark flex-shrink-0" type="button" id="btn_carrito" th:onclick="'agregarCarrito('+${producto.id}+ ')'">
+                                    <i class="bi-cart-fill me-1"></i>
+                                    Agregar a mi carrito
+                                </button>
+                            </div>
+                    </div>
                 </div>
-                <button id="btn_carrito" class="btn btn-primary" type="button" th:onclick="'agregarCarrito('+${producto.id}+ ')'">Agregar a mi carrito</button>
             </div>
         </div>
-
-    </div>
+    </section>
 </div>
 
 </body>
