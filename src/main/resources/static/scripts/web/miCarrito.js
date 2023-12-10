@@ -1,6 +1,55 @@
-//$(document).on("click", "#panel_micarrito", function(){
-//    $('#box_carrito').toggleClass('d-none');
-//});
+$(document).on("click", "#tarjeta_credito_button", function(){
+    $('#paypal').addClass('d-none');
+    $('#tarjeta_credito').removeClass('d-none');
+    $('#tarjeta_credito_button').addClass('active');
+    $('#paypal_button').removeClass('active');
+});
+
+$(document).on("click", "#paypal_button", function(){
+    $('#paypal').removeClass('d-none');
+   $('#tarjeta_credito').addClass('d-none');
+   $('#tarjeta_credito_button').removeClass('active');
+   $('#paypal_button').addClass('active');
+});
+
+
+$(document).on('change', '#departamento', function(){
+    $.ajax({
+        type: "GET",
+        url: "/pagar/provincias/" + this.value,
+        contentType: "application/json",
+        success: function(res){
+            $("#provincia").empty();
+            res.map((item) => {
+                $("#provincia").append(`
+                    <option value="${item.id}">${item.nombre}</option>
+                `);
+            })
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+});
+
+$(document).on('change', '#provincia', function(){
+    $.ajax({
+        type: "GET",
+        url: "/pagar/distrito/" + this.value,
+        contentType: "application/json",
+        success: function(res){
+            $("#distrito").empty();
+            res.map((item) => {
+                $("#distrito").append(`
+                    <option value="${item.id}">${item.nombre}</option>
+                `);
+            })
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    });
+});
 
 function agregarCarrito(id){
     $.ajax({
@@ -23,7 +72,6 @@ function agregarCarrito(id){
 function eliminarProductoCarrito(id){
     console.log('elinar producto en proceso');
 }
-
 
 $(document).on('click', '#btn-guardar', function(){
     $.ajax({
