@@ -23,6 +23,10 @@ public class FacturaService {
     private TipoPagoRepository tipoPagoRepository;
     private FacturaRepository facturaRepository;
 
+    public void actualizarTotalFactura(Integer factura_id){
+        facturaRepository.actualizarTotalFactura(factura_id);
+    }
+
     public Factura save(PagoRequest pagoRequest, Entrega entrega){
         String msg = "Entrega Creado con Exito";
         Boolean status = true;

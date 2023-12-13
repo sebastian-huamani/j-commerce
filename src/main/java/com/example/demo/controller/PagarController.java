@@ -63,6 +63,9 @@ public class PagarController {
             // aqui convertimos toda la lista de deseos a detalle de factura
             detalleService.saveDetalleProductos(factura);
 
+            //actualizamos el monto total de la factura
+            facturaService.actualizarTotalFactura(factura.getId());
+
         }catch (Exception exception){
             msg = exception.getMessage();
             status = true;

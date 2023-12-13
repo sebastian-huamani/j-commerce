@@ -49,7 +49,7 @@ public class EntregaService {
             entrega = new Entrega();
             System.out.println("here4");
             entrega.setTipoEntrega(tipoEntrega);
-                entrega.setUsuario(usuario);
+            entrega.setUsuario(usuario);
             entrega.setDireccion(direccion);
             entregaRepository.save(entrega);
 
