@@ -24,7 +24,7 @@ public class ProductoService {
     }
 
     public RespuestaResponse save(ProductoRequest productoRequest){
-        String msg = "Producto Credo con Exito";
+        String msg = "Producto Creado con Exito";
         Boolean status = true;
 
         try{

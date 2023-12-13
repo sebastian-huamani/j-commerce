@@ -98,3 +98,31 @@ $(document).on('click', '#btn-guardar', function(){
     })
 });
 
+
+$(document).on('click', '#btn-procesar', function(){
+    $.ajax({
+        type: "POST",
+        url: "/pagar/procesar/direccion",
+        contentType: "application/json",
+        data:  JSON.stringify({
+            id              : $('#valueId').val(),
+            direccion       : $('#direccion').val(),
+            referencias     : $('#referencias').val(),
+            telefono        : $('#telefono').val(),
+            departamento    : $('#departamento').val(),
+            provincia       : $('#provincia').val(),
+            distrito        : $('#distrito').val(),
+            codigo_zip      : $('#zip').val(),
+            direccion_preferida : $('#direccion_preferida').is(":checked"),
+            tipoPago : $('#tipo_pago').val(),
+            tipoEntrega : 1,
+            costo_delivery: 3.55
+        }),
+        success: function(res){
+            console.log(res);
+        },
+        error: function(xhr, status, error) {
+            console.log("error");
+        }
+    })
+});
