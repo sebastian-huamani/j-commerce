@@ -28,4 +28,7 @@ public class Factura {
     @Column(name = "costo_delivery")
     private Double costo_delivery;
 
+    @Column(name = "entregado")
+    private Boolean entregado;
+
 }

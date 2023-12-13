@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+
+<div class="m-0 vh-100 row p-3">
+
+    <div class="row gap-3 p-2 container ">
+        <div class="card" th:each="factura :${facturas}">
+            <div class="card-header" >
+                <span th:text="${factura.entregado} ? 'Entregado' : 'En Camino' ">  </span>
+            </div>
+            <div class="card-body">
+<!--                <h5 class="card-title" th:text="${factura}"></h5>-->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Tipo Pago:  <span th:text="${factura.tipoPago.nombre}"></span> </li>
+                    <li class="list-group-item">Tipo Entrega: <span th:text="${factura.entrega.tipoEntrega.nombre}"> </span> </li>
+                    <li class="list-group-item">Lugar de Entrega:
+                        <span th:text="${factura.entrega.direccion.direccion}"> </span> |
+                        <span th:text="${factura.entrega.direccion.departamento.nombre}"> </span> -
+                        <span th:text="${factura.entrega.direccion.provincia.nombre}"> </span> -
+                        <span th:text="${factura.entrega.direccion.distrito.nombre}"> </span>
+                    </li>
+                    <li class="list-group-item">Referencias :
+                        <span th:text="${factura.entrega.direccion.referencias}"> </span> -
+                    </li>
+                    <li class="list-group-item">Codigo Zip :
+                        <span th:text="${factura.entrega.direccion.codigo_zip}"> </span> -
+                    </li>
+                    <li class="list-group-item">Telefono de Contacto :
+                        <span th:text="${factura.entrega.direccion.telefono}"> </span> -
+                    </li>
+                    <li class="list-group-item">Costo Delivery : S/.
+                        <span th:text="${factura.costo_delivery}"> </span>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary mt-3"  th:href="@{/factura/detalle/}  + ${factura.id}">Ver Detalle</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

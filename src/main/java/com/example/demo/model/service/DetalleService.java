@@ -19,6 +19,10 @@ public class DetalleService {
     private CarritoComprasService carritoComprasService;
     private ProductoRepository productoRepository;
 
+    public List<Detalle> listarDetalleByFactura(Integer id ){
+        return detalleRepository.findByFacturaId(id);
+    }
+
     @Transactional(propagation = Propagation.REQUIRED)
     public RespuestaResponse saveDetalleProductos(Factura factura){
         String msg = "Compra Procesada con Exito";

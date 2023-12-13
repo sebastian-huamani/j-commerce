@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +23,14 @@ public class FacturaService {
     private UsuarioRepository usuarioRepository;
     private TipoPagoRepository tipoPagoRepository;
     private FacturaRepository facturaRepository;
+
+    public List<Factura> listar(){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+
+        return facturaRepository.findByUsuarioId(usuario.getId());
+    }
 
     public void actualizarTotalFactura(Integer factura_id){
         facturaRepository.actualizarTotalFactura(factura_id);
@@ -53,6 +62,7 @@ public class FacturaService {
             factura.setTipoPago(tipoPago);
             factura.setEntrega(entrega);
             factura.setUsuario(usuario);
+            factura.setEntregado(false);
             factura.setCosto_delivery(pagoRequest.getCosto_delivery());
             facturaRepository.save(factura);
 
