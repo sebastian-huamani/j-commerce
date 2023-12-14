@@ -63,6 +63,9 @@ public class PagarController {
             //actualizamos el monto total de la factura
             facturaService.actualizarTotalFactura(factura.getId());
 
+            //eliminamos la lista de deseo
+            carritoComprasService.eliminarListaCarrito();
+
         }catch (Exception exception){
             msg = exception.getMessage();
             System.out.println(msg);

@@ -25,6 +25,11 @@ public class CarritoComprasService {
     private UsuarioRepository usuarioRepository;
     private ProductoRepository productoRepository;
 
+    public void eliminarListaCarrito(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+        carritoComprasRepository.eliminarListaCarrito(usuario.getId());
+    }
 
     public List<CarritoCompras> listar(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
