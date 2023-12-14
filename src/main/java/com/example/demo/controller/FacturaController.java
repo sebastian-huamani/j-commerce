@@ -32,16 +32,10 @@ public class FacturaController {
 
     @GetMapping("/detalle/{id}")
     public String detalle(@PathVariable int id, Model model) {
-//        List<Detalle> detalle = null;
-//        try {
-//            detalle = detalleService.listarDetalleByFactura(id);
-//            System.out.println(detalle);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
+//
         System.out.println(detalleRepository.findByFacturaId(id));
 
-        model.addAttribute("detalle",  detalleService.listarDetalleByFactura(id));
+        model.addAttribute("detalles",  detalleService.listarDetalleByFactura(id));
         return "/facturas/detalle";
     }
 }

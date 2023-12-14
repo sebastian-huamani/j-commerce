@@ -5,11 +5,34 @@
 
 <nav th:replace="layout/layout::menu"></nav>
 
-<div class="m-0 vh-100 row p-3">
+<div class="m-0 vh-100 p-3">
 
-    <div class="row gap-3 p-2 container ">
-       <p th:text="${detalle}"> </p>
-    </div>
+    <h1 class="text-center mt-3">Lista Productos</h1>
+
+    <table class="table text-center my-4">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Precio Producto</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="detalle :${detalles}">
+                <td th:text="${detalle.producto.id}"></td>
+                <td th:text="${detalle.producto.nombre}"></td>
+                <td th:text="${detalle.producto.marca}"></td>
+                <td th:text="${detalle.producto.precio_venta}"></td>
+                <td th:text="${detalle.subtotal}"></td>
+                <td>
+                    <a class="btn btn-outline-dark mt-auto" th:href="@{/productos/visualizar/}  + ${detalle.producto.id}" >Ver Producto</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 

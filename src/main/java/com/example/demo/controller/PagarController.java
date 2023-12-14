@@ -47,18 +47,15 @@ public class PagarController {
 
     @PostMapping("/procesar/direccion")
     @ResponseBody
-    public RespuestaResponse store(@RequestBody PagoRequest pagoRequest){
+    public String store(@RequestBody PagoRequest pagoRequest){
         String msg = "Compra Procesada con Exito";
         Boolean status = true;
         try{
             Direccion direccion =  direccionService.save(pagoRequest);
-            System.out.println(direccion);
 
             Entrega entrega =  entregaService.save(pagoRequest, direccion);
-            System.out.println(entrega);
 
             Factura factura = facturaService.save(pagoRequest, entrega);
-            System.out.print(factura);
 
             // aqui convertimos toda la lista de deseos a detalle de factura
             detalleService.saveDetalleProductos(factura);
@@ -68,9 +65,10 @@ public class PagarController {
 
         }catch (Exception exception){
             msg = exception.getMessage();
-            status = true;
+            System.out.println(msg);
+            return "/factura/error";
         }
-        return RespuestaResponse.builder().mensaje(msg).respuesta(status).build();
+        return "/factura/exito";
     }
 
 
