@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.db.Detalle;
+import com.example.demo.model.db.Factura;
+import com.example.demo.model.repository.DetalleRepository;
 import com.example.demo.model.response.UsuarioResponse;
 import com.example.demo.model.service.DetalleService;
 import com.example.demo.model.service.FacturaService;
@@ -20,6 +22,7 @@ public class FacturaController {
 
     private FacturaService facturaService;
     private DetalleService detalleService;
+    private DetalleRepository detalleRepository;
 
     @GetMapping("/listar")
     public String listar(Model model){
@@ -28,18 +31,17 @@ public class FacturaController {
     }
 
     @GetMapping("/detalle/{id}")
-    public List<Detalle> detalle(@PathVariable int id, Model model) {
-        List<Detalle> detalle = null;
-        try {
-            detalle = detalleService.listarDetalleByFactura(id);
-            System.out.println(detalle);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public String detalle(@PathVariable int id, Model model) {
+//        List<Detalle> detalle = null;
+//        try {
+//            detalle = detalleService.listarDetalleByFactura(id);
+//            System.out.println(detalle);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+        System.out.println(detalleRepository.findByFacturaId(id));
 
-
-//        model.addAttribute("producto", producto);
-//        return "/productos/editar";
-        return detalle;
+        model.addAttribute("detalle",  detalleService.listarDetalleByFactura(id));
+        return "/facturas/detalle";
     }
 }

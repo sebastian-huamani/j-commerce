@@ -1,11 +1,12 @@
 package com.example.demo.model.repository;
 
 import com.example.demo.model.db.Producto;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
-    Producto findById (Id id);
+    Optional<Producto> findById (Integer id);
 }

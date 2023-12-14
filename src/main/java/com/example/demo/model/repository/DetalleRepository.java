@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface DetalleRepository extends JpaRepository<Detalle, Integer> {
     List<Detalle> findByFacturaId(Integer id);
+
+
 }

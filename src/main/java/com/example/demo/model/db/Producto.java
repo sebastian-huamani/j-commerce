@@ -23,10 +23,10 @@ public class Producto {
     private  String marca;
 
     @Column(name = "precio_compra")
-    private Integer precio_compra;
+    private Double precio_compra;
 
     @Column(name = "precio_venta")
-    private Integer precio_venta;
+    private Double precio_venta;
 
     @Column(name = "activo")
     private Boolean activo;

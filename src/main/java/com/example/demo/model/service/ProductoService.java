@@ -35,8 +35,8 @@ public class ProductoService {
             producto.setNombre(productoRequest.getNombre());
             producto.setDescripcion(productoRequest.getDescripcion());
             producto.setMarca(productoRequest.getMarca());
-            producto.setPrecio_compra(productoRequest.getPrecio_compra());
-            producto.setPrecio_venta(productoRequest.getPrecio_venta());
+            producto.setPrecio_compra(Double.valueOf(productoRequest.getPrecio_compra()));
+            producto.setPrecio_venta(Double.valueOf(productoRequest.getPrecio_venta()));
             producto.setActivo(productoRequest.getActivo());
             producto.setCantidad(productoRequest.getCantidad());
             producto.setCantidad_minima(productoRequest.getCantidad_minima());

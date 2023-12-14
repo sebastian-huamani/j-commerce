@@ -23,37 +23,43 @@ public class DetalleService {
         return detalleRepository.findByFacturaId(id);
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+//    @Transactional(propagation = Propagation.REQUIRED)
     public RespuestaResponse saveDetalleProductos(Factura factura){
         String msg = "Compra Procesada con Exito";
         Boolean status = true;
 
         List<CarritoCompras> carritoCompras = carritoComprasService.listar();
         Detalle detalle = null;
-
         try{
             for (CarritoCompras carritoItem : carritoCompras){
                 detalle = new Detalle();
+                System.out.println(carritoItem.getProducto().getPrecio_venta());
 
-                Optional<Producto> producto_db = productoRepository.findById(carritoItem.getId());
+
+
+                Optional<Producto> producto_db = productoRepository.findById(carritoItem.getProducto().getId());
                 Producto producto = null;
+
                 if (producto_db.isPresent()) {
                     producto = producto_db.get();
                 } else {
                     msg = "Producto no encontrado";
                     status = false;
                 }
+                System.out.println(producto.getPrecio_venta());
 
                 detalle.setProducto(producto);
                 detalle.setFactura(factura);
                 detalle.setCantidad(carritoItem.getCantidad());
-                detalle.setPrecio(Double.valueOf(producto.getPrecio_venta()));
+                detalle.setPrecio(producto.getPrecio_venta());
 
-                Double subTotal = Double.valueOf(producto.getPrecio_venta()) * carritoItem.getCantidad();
+                Double subTotal = producto.getPrecio_venta() * carritoItem.getCantidad();
                 detalle.setSubtotal(subTotal);
+                System.out.println(detalle);
                 detalleRepository.save(detalle);
             }
         }catch (Exception exception){
+            System.out.println(exception.getMessage());
             msg = exception.getMessage();
             status = false;
         }

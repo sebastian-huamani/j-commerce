@@ -29,6 +29,7 @@ public class CarritoComprasService {
     public List<CarritoCompras> listar(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+        System.out.println(usuario.getId());
         return carritoComprasRepository.findByUsuarioId(usuario.getId());
     }
 
