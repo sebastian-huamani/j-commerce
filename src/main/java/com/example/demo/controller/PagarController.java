@@ -47,7 +47,7 @@ public class PagarController {
 
     @PostMapping("/procesar/direccion")
     @ResponseBody
-    public String store(@RequestBody PagoRequest pagoRequest){
+    public RespuestaResponse store(@RequestBody PagoRequest pagoRequest){
         String msg = "Compra Procesada con Exito";
         Boolean status = true;
         try{
@@ -66,9 +66,8 @@ public class PagarController {
         }catch (Exception exception){
             msg = exception.getMessage();
             System.out.println(msg);
-            return "/factura/error";
         }
-        return "/factura/exito";
+        return RespuestaResponse.builder().mensaje(msg).respuesta(status).build();
     }
 
 

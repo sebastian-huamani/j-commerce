@@ -38,4 +38,14 @@ public class FacturaController {
         model.addAttribute("detalles",  detalleService.listarDetalleByFactura(id));
         return "/facturas/detalle";
     }
+
+    @GetMapping("/exito")
+    public String exito(){
+        return "/facturas/exito";
+    }
+
+    @GetMapping("/error")
+    public String error(){
+        return "/facturas/error";
+    }
 }

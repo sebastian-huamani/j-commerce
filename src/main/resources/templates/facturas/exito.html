@@ -7,7 +7,16 @@
 
 <div class="m-0 vh-100 row p-3">
 
-   Compra realiada con exito
+   <div class="px-4 py-5 my-5 text-center">
+      <i class="fa-solid fa-cart-shopping my-2" style="font-size: 100px;"></i>
+      <h1 class="display-5 fw-bold text-body-emphasis">Compra realiada con exito</h1>
+      <div class="col-lg-6 mx-auto">
+         <p class="lead mb-4">La compra se ha realizado con exito, puedes ver el estado actual de tu compra en el siguiente enlace:</p>
+         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/factura/listar}">Ver Compra</a>
+         </div>
+      </div>
+   </div>
 
 </div>
 

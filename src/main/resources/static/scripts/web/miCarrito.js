@@ -119,7 +119,10 @@ $(document).on('click', '#btn-procesar', function(){
             costo_delivery: 3.55
         }),
         success: function(res){
-            console.log(res);
+            if(res.respuesta){
+                    window.location.href = "/factura/exito";
+            }
+            console.log(res.respuesta);
         },
         error: function(xhr, status, error) {
             console.log("error");
