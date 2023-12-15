@@ -1,10 +1,15 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.db.Producto;
+import com.example.demo.model.db.Rol;
+import com.example.demo.model.db.Usuario;
+import com.example.demo.model.repository.UsuarioRepository;
 import com.example.demo.model.request.ProductoRequest;
 import com.example.demo.model.response.RespuestaResponse;
 import com.example.demo.model.service.ProductoService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +23,16 @@ import java.util.Optional;
 public class ProductosController {
 
     private ProductoService productoService;
+    private UsuarioRepository usuarioRepository;
 
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("productos", productoService.listarProductos());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
+        System.out.println( usuario.getRoles());
+
+        model.addAttribute("usuario", usuario);
         return "/productos/index";
     }
 

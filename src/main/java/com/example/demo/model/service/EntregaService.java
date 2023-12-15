@@ -32,7 +32,6 @@ public class EntregaService {
 
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             Usuario usuario =  usuarioRepository.findByNombres(String.valueOf(auth.getName()));
-            System.out.println("here1");
 
 
             Optional<TipoEntrega> tipoEntrega_db = tipoEntregaRepository.findById(pagoRequest.getTipoEntrega());
@@ -40,14 +39,11 @@ public class EntregaService {
             TipoEntrega tipoEntrega = null;
             if (tipoEntrega_db.isPresent()) {
                 tipoEntrega = tipoEntrega_db.get();
-                System.out.println(tipoEntrega);
             } else {
                 msg = "El Tipo Entrega ha generado un error";
                 status = false;
             }
-            System.out.println("here3");
             entrega = new Entrega();
-            System.out.println("here4");
             entrega.setTipoEntrega(tipoEntrega);
             entrega.setUsuario(usuario);
             entrega.setDireccion(direccion);

@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.config.SecurityConfig;
-import com.example.demo.model.security.UsuarioSecurity;
+import com.example.demo.model.request.security.UsuarioSecurity;
 import com.example.demo.model.service.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -10,10 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @RequestMapping("/auth")
 @Controller
@@ -28,7 +24,7 @@ public class LoginController {
 
     @GetMapping("/login-success")
     public String loginSuccess(){
-        return "redirect:/auth/dashboard";
+        return "redirect:/productos";
     }
 
     @GetMapping("/dashboard")

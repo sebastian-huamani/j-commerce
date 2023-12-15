@@ -1,4 +1,4 @@
-package com.example.demo.model.security;
+package com.example.demo.model.request.security;
 
 import lombok.Getter;
 import lombok.Setter;
