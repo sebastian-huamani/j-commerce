@@ -70,7 +70,17 @@ function agregarCarrito(id){
 }
 
 function eliminarProductoCarrito(id){
-    console.log('elinar producto en proceso');
+   $.ajax({
+       type: "GET",
+       url: "/carrito/compras/eliminar/" + id,
+       contentType: "application/json",
+       success: function(res){
+           console.log(res);
+       },
+       error: function(xhr, status, error) {
+           console.log("error");
+       }
+   })
 }
 
 $(document).on('click', '#btn-guardar', function(){

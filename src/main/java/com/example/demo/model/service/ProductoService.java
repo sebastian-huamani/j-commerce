@@ -15,6 +15,8 @@ import java.util.Optional;
 public class ProductoService {
     private ProductoRepository productoRepository;
 
+
+
     public Optional<Producto> findProductoById(int id){
         return productoRepository.findById(id);
     }
@@ -48,4 +50,6 @@ public class ProductoService {
         return RespuestaResponse.builder().mensaje(msg).respuesta(status).build();
 
     }
+
+
 }

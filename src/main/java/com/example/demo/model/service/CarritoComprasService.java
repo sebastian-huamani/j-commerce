@@ -15,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -24,6 +25,17 @@ public class CarritoComprasService {
     private CarritoComprasRepository carritoComprasRepository;
     private UsuarioRepository usuarioRepository;
     private ProductoRepository productoRepository;
+
+    public void deleteProductoCarrito(Integer id){
+        List<CarritoCompras> carritoComprasLista = listar();
+        for (CarritoCompras carritoCompras : carritoComprasLista){
+            if(carritoCompras.getId().equals(id)){
+                carritoComprasRepository.deleteById(id);
+//                System.out.println(carritoCompras);
+            }
+        }
+    }
+
 
     public void eliminarListaCarrito(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

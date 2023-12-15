@@ -39,4 +39,9 @@ public class CarritoComprasController {
         return "/carrito/listaCarrito";
     }
 
+    @GetMapping("/eliminar/{id}")
+    public void listar(@PathVariable int id, Model model){
+        carritoComprasService.deleteProductoCarrito(id);
+    }
+
 }
