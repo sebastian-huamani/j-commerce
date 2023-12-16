@@ -24,7 +24,7 @@ public class LoginController {
 
     @GetMapping("/login-success")
     public String loginSuccess(){
-        return "redirect:/productos";
+        return "redirect:/productos/";
     }
 
     @GetMapping("/dashboard")

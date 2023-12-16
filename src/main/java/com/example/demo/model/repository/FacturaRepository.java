@@ -10,6 +10,10 @@ import java.util.List;
 @Repository
 public interface FacturaRepository extends JpaRepository<Factura, Integer> {
 
+
+    @Procedure("actualizar_estado_entrega")
+    void actualizar_estado_entrega(Integer entrega_id, Integer estado);
+
     List<Factura> findByUsuarioId(Integer Id);
 
     @Procedure("actualizar_total_factura")

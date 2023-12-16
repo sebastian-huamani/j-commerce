@@ -28,7 +28,10 @@ public class Factura {
     @Column(name = "costo_delivery")
     private Double costo_delivery;
 
+    @Column(name = "importe_total")
+    private Double importe_total;
+
     @Column(name = "entregado")
-    private Boolean entregado;
+    private Integer entregado;
 
 }

@@ -24,6 +24,14 @@ public class FacturaService {
     private TipoPagoRepository tipoPagoRepository;
     private FacturaRepository facturaRepository;
 
+    public void actualizarEstadoEntrega(Integer entrega_id, Integer estado){
+        facturaRepository.actualizar_estado_entrega( entrega_id, estado);
+    }
+
+    public List<Factura> listarAll(){
+        return facturaRepository.findAll();
+    }
+
     public List<Factura> listar(){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -62,7 +70,7 @@ public class FacturaService {
             factura.setTipoPago(tipoPago);
             factura.setEntrega(entrega);
             factura.setUsuario(usuario);
-            factura.setEntregado(false);
+            factura.setEntregado(0);
             factura.setCosto_delivery(pagoRequest.getCosto_delivery());
             facturaRepository.save(factura);
 

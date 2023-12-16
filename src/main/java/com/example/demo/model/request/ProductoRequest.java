@@ -9,8 +9,8 @@ public class ProductoRequest {
     private  String nombre;
     private  String descripcion;
     private  String marca;
-    private Integer precio_compra;
-    private Integer precio_venta;
+    private Double precio_compra;
+    private Double precio_venta;
     private Boolean activo;
     private Integer cantidad;
     private Integer cantidad_minima;

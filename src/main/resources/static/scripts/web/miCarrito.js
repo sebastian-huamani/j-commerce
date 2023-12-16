@@ -139,3 +139,37 @@ $(document).on('click', '#btn-procesar', function(){
         }
     })
 });
+
+
+function cambiarEstadoDenegado(id){
+   $.ajax({
+       type: "GET",
+       url: "/monitoreo/entregas/estado/denegado/" + id,
+       contentType: "application/json",
+       success: function(res){
+           console.log(res);
+
+       },
+       error: function(xhr, status, error) {
+           console.log("error");
+       }
+   });
+   window.location.reload();
+}
+
+
+function cambiarEstadoEntregado(id){
+   $.ajax({
+       type: "GET",
+       url: "/monitoreo/entregas/estado/aceptado/" + id,
+       contentType: "application/json",
+       success: function(res){
+
+       },
+       error: function(xhr, status, error) {
+           console.log("error");
+       }
+
+   });
+   window.location.reload();
+}

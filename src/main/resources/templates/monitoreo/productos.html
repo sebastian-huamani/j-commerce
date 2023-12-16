@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+<!--<script th:src="@{/scripts/web/authentication/login.js}"-->
+<!--        type="text/javascript"></script>-->
+
+<div class="m-0 vh-100 p-3 justify-content-center mt-5">
+    <div class="d-flex" style="height: 31px;">
+        <a class="btn btn-success" th:href="@{/productos/crear}"> Crear Producto </a>
+    </div>
+
+
+    <table class="table caption-top text-center">
+        <caption>Lista de productos</caption>
+        <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Precio Compra</th>
+            <th scope="col">Precio Venta</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Cantidad Actual</th>
+            <th scope="col">Cantidad Minima</th>
+            <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="producto :${productos}">
+            <td th:text="${producto.id}"></td>
+            <td th:text="${producto.nombre}"></td>
+            <td th:text="${producto.marca}"></td>
+            <td th:text="${producto.precio_compra}"></td>
+            <td  th:text="${producto.cantidad}"></td>
+            <td>
+                <input type="checkbox" th:checked="${producto.getActivo()}" onclick="return false;"/>
+            </td>
+            <td th:text="${producto.precio_venta}"></td>
+            <td th:text="${producto.cantidad_minima}"></td>
+            <td>
+                <a th:href="@{/productos/visualizar/}  + ${producto.id}" type="button" class="btn btn-success">Ver Producto</a>
+                <a th:href="@{/productos/editar/} + ${producto.id}" type="button" class="btn btn-primary">Editar</a>
+                <a  class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

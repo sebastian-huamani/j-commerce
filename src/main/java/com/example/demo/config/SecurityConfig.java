@@ -44,7 +44,9 @@ public class SecurityConfig {
                                             "/productos/**",
                                             "/productos/store",
                                             "/carrito/**",
-                                            "/carrito/compras/**")
+                                            "/carrito/compras/**",
+                                            "/monitoreo/**",
+                                            "/monitoreo/entregas/**")
                                     .permitAll().anyRequest().authenticated()
                 ).csrf(AbstractHttpConfigurer::disable)
                 .formLogin(
