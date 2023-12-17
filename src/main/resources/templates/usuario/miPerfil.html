@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="layout/layout::head"></head>
+<body>
+
+<nav th:replace="layout/layout::menu"></nav>
+<script th:src="@{/scripts/web/authentication/login.js}"
+        type="text/javascript"></script>
+
+<div class="m-0 vh-100 justify-content-center p-3">
+    <h2>Mi perfil</h2>
+    <div>
+        <div class="mb-3">
+            <label for="txtnombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombres" id="txtnombre" th:value="${usuario.nombres}">
+        </div>
+        <div class="mb-3">
+            <label for="apellido_paterno" class="form-label">Apellido Paterno</label>
+            <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno" th:value="${usuario.apellido_paterno}">
+        </div>
+        <div class="mb-3">
+            <label for="apellido_materno" class="form-label">Apellido Maternos</label>
+            <input type="text" class="form-control" name="apellido_materno" id="apellido_materno" th:value="${usuario.apellido_materno}">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" id="email" th:value="${usuario.email}">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
