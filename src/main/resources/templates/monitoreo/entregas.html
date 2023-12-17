@@ -7,27 +7,24 @@
 <script th:src="@{/scripts/web/authentication/login.js}"
         type="text/javascript"></script>
 
-<div class="m-0 vh-100 p-3 justify-content-center mt-5 container mx-0">
+<div class="vh-100 p-3 mt-5 container mx-auto">
     <table class="table caption-top text-center">
-        <caption>List of users</caption>
+        <caption>Lista de Usuarios</caption>
         <thead>
         <tr>
-            <th scope="col">Usuario</th>
+            <th scope="col">Codigo Comprador</th>
             <th scope="col">Costo delivery</th>
-            <th scope="col">Costo Total</th>
+            <th scope="col">Costo Productos</th>
+            <th scope="col">Estado Entrega</th>
             <th scope="col">Opciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pedido :${pedidos}">
-            <td class="d-flex">
-                <p th:text="${pedido.usuario.nombres}"></p>
-                <p th:text="${pedido.usuario.apellido_paterno}"></p>
-                <p th:text="${pedido.usuario.apellido_materno}"></p>
-            </td>
+            <td th:text="${pedido.usuario.id}"></td>
             <td th:text="${pedido.costo_delivery}"></td>
             <td th:text="${pedido.importe_total}"></td>
-            <td >
+            <td>
                 <p th:text="${pedido.entregado == 0} ? 'Sin Estado' : '' "></p>
                 <p th:text="${pedido.entregado == 1} ? 'En Proceso de Entrega' : '' "></p>
                 <p th:text="${pedido.entregado == 2} ? 'Entrega Denegada' : '' "></p>

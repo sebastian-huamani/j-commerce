@@ -37,4 +37,7 @@ public class Producto {
     @Column(name = "cantidad_minima")
     private Integer cantidad_minima;
 
+    @Column(name = "imagen_url")
+    private String imagen_url;
+
 }

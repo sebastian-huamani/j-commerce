@@ -1,0 +1,15 @@
+
+.product_img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    /* border-radius: 10px; */
+}
+
+.text-limit {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+}

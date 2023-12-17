@@ -13,11 +13,11 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5" th:each="producto :${productos}">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="product_img card-img-top" th:src="@{${producto.imagen_url}}" alt="..."  />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder" th:text="${producto.nombre}"></h5>
-                                    <p class="card-text" th:text="${producto.descripcion}"></p>
+                                    <h5 class="fw-bolder text-limit" th:text="${producto.nombre}"></h5>
+                                    <p class="card-text text-limit" th:text="${producto.descripcion}"></p>
                                     <div class="d-flex justify-content-between p-2">
                                         <p > S/. <span th:text="${producto.precio_venta}"></span> </p>
                                         <p > Marca: <span th:text="${producto.marca}"></span> </p>

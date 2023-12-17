@@ -14,4 +14,5 @@ public class ProductoRequest {
     private Boolean activo;
     private Integer cantidad;
     private Integer cantidad_minima;
+    private String imagen_url;
 }

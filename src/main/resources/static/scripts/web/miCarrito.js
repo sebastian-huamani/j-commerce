@@ -81,6 +81,8 @@ function eliminarProductoCarrito(id){
            console.log("error");
        }
    })
+
+   window.location.reload();
 }
 
 $(document).on('click', '#btn-guardar', function(){
@@ -97,7 +99,8 @@ $(document).on('click', '#btn-guardar', function(){
             precio_venta : $('#txtprecio_venta').val(),
             activo : $('#txtactivo').is(":checked"),
             cantidad : $('#txtcantidad').val(),
-            cantidad_minima : $('#txtcantidad_minima').val()
+            cantidad_minima : $('#txtcantidad_minima').val(),
+            imagen_url : $('#txtimagen').val()
         }),
         success: function(res){
             console.log(res);
