@@ -7,7 +7,7 @@
 <script th:src="@{/scripts/web/authentication/login.js}"
         type="text/javascript"></script>
 
-<div class="m-0 vh-100 justify-content-center p-3">
+<div class="m-auto container vh-100 justify-content-center p-3">
     <h2>Mi perfil</h2>
     <div>
         <div class="mb-3">
@@ -27,6 +27,9 @@
             <input type="email" class="form-control" name="email" id="email" th:value="${usuario.email}">
         </div>
     </div>
+    <form th:action="@{/logout}" method="post" class="dropdown-item">
+        <button class="btn btn-success" type="submit">Cerrar Session</button>
+    </form>
 </div>
 
 </body>
